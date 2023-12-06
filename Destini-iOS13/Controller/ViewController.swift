@@ -30,6 +30,14 @@ class ViewController: UIViewController {
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         print(sender.currentTitle!)
+        tellStory.moveToNext(sender.currentTitle!)
+        Timer.scheduledTimer( timeInterval: 0.5 , target: self, selector: #selector(nextChoice), userInfo: nil, repeats: false)
+    }
+    
+    @objc func nextChoice () {
+        storyLabel.text = tellStory.getStory()
+        choice1Button.setTitle(tellStory.getChoice(1), for: .normal )
+        choice2Button.setTitle(tellStory.getChoice(2), for: .normal )
     }
     
 

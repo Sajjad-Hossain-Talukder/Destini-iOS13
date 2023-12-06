@@ -57,4 +57,14 @@ struct StoryBrain {
             return storyList[storySerial].choice2
         }
     }
+    
+    mutating func moveToNext( _ ch : String ){
+        if ch == storyList[storySerial].choice1 {
+            storySerial = storyList[storySerial].choice1Destination
+        } else {
+            storySerial = storyList[storySerial].choice2Destination
+        }
+    }
+    
+    
 }
