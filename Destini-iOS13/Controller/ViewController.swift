@@ -10,14 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    var tellStory = StoryBrain()
+    
     @IBOutlet weak var storyLabel: UILabel!
     @IBOutlet weak var choice1Button: UIButton!
     @IBOutlet weak var choice2Button: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        storyLabel.text = tellStory.getStory()
+        choice1Button.setTitle(tellStory.getChoice(1), for: .normal )
+        choice2Button.setTitle(tellStory.getChoice(2), for: .normal )
     }
+    
+    
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        print(sender.currentTitle!)
+    }
+    
 
 
 }
